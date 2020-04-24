@@ -1,5 +1,6 @@
 var assert = require('chai').assert
 var parkingLotSystem = require('../main/parkingLot')
+var owner = require('../main/owner')
 
 describe(`Testing for parking lot`, function () {
 
@@ -28,12 +29,19 @@ describe(`Testing for parking lot`, function () {
     })
 
     // throw exception when ask for unpark the car which is not parked
-    it.only(`given not parked car when unpark should throw exception`, function () {
+    it(`given not parked car when unpark should throw exception`, function () {
         let car = {};
         let car1 = {}
         parkingLot.parkCar(car)
         assert.equal("car not parked", parkingLot.unPark(car1))
     })
 
+    // UC3.. inform owner when parking lot is full
+    it(`inform owner when parking lot is full`, function () {
+        let car = {};
+        let car1 = {}
+        parkingLot.parkCar(car)
+        assert.equal(parkingLot.parkCar(car1), owner.informParkingLotFull())
+    })
 
 })

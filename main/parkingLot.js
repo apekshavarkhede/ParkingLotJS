@@ -1,3 +1,4 @@
+var owner = require('./owner')
 class ParkingLot {
     constructor() {
         this.car = [];
@@ -6,14 +7,20 @@ class ParkingLot {
     // park the car
     parkCar(car) {
         try {
-            if (typeof car === 'object') {
-                this.car.push(car)
-                return true
+            if (!this.isParkingLotFull()) {
+                if (typeof car === 'object') {
+                    this.car.push(car)
+                    return true
+                }
+                if (typeof car !== 'object') {
+                    throw "car must be an object";
+                }
             }
-            if (typeof car !== 'object') {
-                throw "car must be an object";
+            if (this.isParkingLotFull) {
+                return owner.informParkingLotFull()
             }
-        } catch (error) {
+        }
+        catch (error) {
             return error
         }
     }
@@ -37,5 +44,11 @@ class ParkingLot {
             return error
         }
     }
+
+    // check parking lot is full
+    isParkingLotFull() {
+        return this.car.length === 1
+    }
+
 }
 module.exports = ParkingLot
