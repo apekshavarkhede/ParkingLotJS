@@ -3,16 +3,19 @@ var parkingLotSystem = require('../main/parkingLot')
 
 describe(`Testing for parking lot`, function () {
 
+    let parkingLot;
+    beforeEach(function () {
+        parkingLot = new parkingLotSystem();
+    })
+
     //  UC1.. park the car
     it(`given car  when ask to park should return true`, function () {
-        let parkingLot = new parkingLotSystem()
         let carObject = {};
         assert.isTrue(parkingLot.parkCar(carObject))
     })
 
-    // throw exception when carObject is not
+    // throw exception when car is not object type
     it(`given car not an object when ask to park should throw exception`, function () {
-        let parkingLot = new parkingLotSystem()
         let carObject = 0;
         assert.equal(parkingLot.parkCar(carObject), "car must be an object")
     })
