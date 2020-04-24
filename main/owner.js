@@ -8,5 +8,9 @@ class Owner {
         return "Parking lot is full"
     }
 
+    informWhenSpaceIsAvailable() {
+        this.isFull = false;
+    }
+
 }
 module.exports = new Owner;

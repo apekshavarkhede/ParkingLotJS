@@ -17,7 +17,7 @@ class ParkingLot {
                     throw "car must be an object";
                 }
             }
-            if (this.isParkingLotFull) {
+            if (this.isParkingLotFull()) {
                 // inform owner and airportSecurity that parking lot is full
                 return owner.informParkingLotFull() && airportSecurity.informParkingLotIsFull()
             }
@@ -30,12 +30,13 @@ class ParkingLot {
     // unPark the car
     unPark(car) {
         try {
-            if (this.car.length === 0) {
+            if (this.checkParkingLotEmpty()) {
                 return "no car"
             }
-            if (this.car.length > 0) {
+            if (!this.checkParkingLotEmpty()) {
                 if (this.car.includes(car)) {
                     this.car.pop(car)
+                    owner.informWhenSpaceIsAvailable() // inform owner when space is available in parking lot
                     return true
                 }
                 else {
@@ -50,6 +51,11 @@ class ParkingLot {
     // check parking lot is full
     isParkingLotFull() {
         return this.car.length === 1
+    }
+
+    // check parking lot is empty or not
+    checkParkingLotEmpty() {
+        return this.car.length === 0
     }
 
 }

@@ -52,4 +52,13 @@ describe(`Testing for parking lot`, function () {
         parkingLot.parkCar(car)
         assert.equal(parkingLot.parkCar(car1), airportSecurity.informParkingLotIsFull())
     })
+
+    //UC5.. inform owner when parking lot is empty
+    it(`inform owner when parking lot is empty`, function () {
+        let car = {};
+        parkingLot.parkCar(car)
+        let result = parkingLot.unPark(car)
+        assert.isTrue(result)
+    })
+
 })
