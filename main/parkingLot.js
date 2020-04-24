@@ -18,15 +18,23 @@ class ParkingLot {
         }
     }
 
+    // unPark the car
     unPark(car) {
-        if (this.car.length === 0) {
-            return "no car"
-        }
-        if (this.car.length > 0) {
-            if (this.car.includes(car)) {
-                this.car.pop(car)
-                return true
+        try {
+            if (this.car.length === 0) {
+                return "no car"
             }
+            if (this.car.length > 0) {
+                if (this.car.includes(car)) {
+                    this.car.pop(car)
+                    return true
+                }
+                else {
+                    throw "car not parked"
+                }
+            }
+        } catch (error) {
+            return error
         }
     }
 }

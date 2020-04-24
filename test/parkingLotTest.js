@@ -27,4 +27,13 @@ describe(`Testing for parking lot`, function () {
         assert.isTrue(parkingLot.unPark(car))
     })
 
+    // throw exception when ask for unpark the car which is not parked
+    it.only(`given not parked car when unpark should throw exception`, function () {
+        let car = {};
+        let car1 = {}
+        parkingLot.parkCar(car)
+        assert.equal("car not parked", parkingLot.unPark(car1))
+    })
+
+
 })
