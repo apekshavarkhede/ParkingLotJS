@@ -18,5 +18,16 @@ class ParkingLot {
         }
     }
 
+    unPark(car) {
+        if (this.car.length === 0) {
+            return "no car"
+        }
+        if (this.car.length > 0) {
+            if (this.car.includes(car)) {
+                this.car.pop(car)
+                return true
+            }
+        }
+    }
 }
 module.exports = ParkingLot

@@ -20,4 +20,12 @@ describe(`Testing for parking lot`, function () {
         assert.equal(parkingLot.parkCar(carObject), "car must be an object")
     })
 
+    // UC2..unPark the car
+    it(`given car not an object when ask to park should throw exception`, function () {
+        let car = {};
+        parkingLot.parkCar(car)
+        assert.isTrue(parkingLot.unPark(car))
+    })
+
+
 })
