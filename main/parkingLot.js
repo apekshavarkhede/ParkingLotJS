@@ -3,9 +3,19 @@ class ParkingLot {
         this.car = [];
     }
 
+    // park the car
     parkCar(car) {
-        this.car.push(car)
-        return true
+        try {
+            if (typeof car === 'object') {
+                this.car.push(car)
+                return true
+            }
+            if (typeof car !== 'object') {
+                throw "car must be an object";
+            }
+        } catch (error) {
+            return error
+        }
     }
 
 }
