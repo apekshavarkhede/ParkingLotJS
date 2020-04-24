@@ -1,4 +1,5 @@
 var owner = require('./owner')
+var airportSecurity = require('./airportSecurity')
 class ParkingLot {
     constructor() {
         this.car = [];
@@ -17,7 +18,8 @@ class ParkingLot {
                 }
             }
             if (this.isParkingLotFull) {
-                return owner.informParkingLotFull()
+                // inform owner and airportSecurity that parking lot is full
+                return owner.informParkingLotFull() && airportSecurity.informParkingLotIsFull()
             }
         }
         catch (error) {

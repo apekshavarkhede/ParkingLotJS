@@ -1,6 +1,7 @@
 var assert = require('chai').assert
 var parkingLotSystem = require('../main/parkingLot')
 var owner = require('../main/owner')
+var airportSecurity = require('../main/airportSecurity')
 
 describe(`Testing for parking lot`, function () {
 
@@ -44,4 +45,11 @@ describe(`Testing for parking lot`, function () {
         assert.equal(parkingLot.parkCar(car1), owner.informParkingLotFull())
     })
 
+    // UC4.. inform airport security personal when parking lot is full
+    it(`inform airport security personal when parking lot is full`, function () {
+        let car = {};
+        let car1 = {}
+        parkingLot.parkCar(car)
+        assert.equal(parkingLot.parkCar(car1), airportSecurity.informParkingLotIsFull())
+    })
 })
