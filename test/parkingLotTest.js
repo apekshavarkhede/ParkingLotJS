@@ -21,11 +21,10 @@ describe(`Testing for parking lot`, function () {
     })
 
     // UC2..unPark the car
-    it(`given car not an object when ask to park should throw exception`, function () {
+    it(`given parked car when unpark should return true`, function () {
         let car = {};
         parkingLot.parkCar(car)
         assert.isTrue(parkingLot.unPark(car))
     })
-
 
 })
