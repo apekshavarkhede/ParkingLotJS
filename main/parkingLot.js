@@ -50,7 +50,7 @@ class ParkingLot {
 
     // check parking lot is full
     isParkingLotFull() {
-        return this.car.length === 1
+        return !this.checkParkingLotEmpty()
     }
 
     // check parking lot is empty or not
