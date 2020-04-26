@@ -14,7 +14,7 @@ class ParkingLot {
                     return true
                 }
                 if (typeof car !== 'object') {
-                    throw "car must be an object";
+                    throw Error("car must be an object");
                 }
             }
             if (this.isParkingLotFull()) {
@@ -40,7 +40,7 @@ class ParkingLot {
                     return true
                 }
                 else {
-                    throw "car not parked"
+                    throw Error("car not parked")
                 }
             }
         } catch (error) {
