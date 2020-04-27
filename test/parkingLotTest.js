@@ -2,6 +2,8 @@ var assert = require('chai').assert
 var parkingLotSystem = require('../main/parkingLot')
 var owner = require('../main/owner')
 var airportSecurity = require('../main/airportSecurity')
+var sinon = require('sinon')
+var expect = require('chai').expect
 
 describe(`Testing for parking lot`, function () {
 
@@ -48,11 +50,14 @@ describe(`Testing for parking lot`, function () {
     })
 
     // UC3.. inform owner when parking lot is full
-    it(`inform owner when parking lot is full`, function () {
+    it.only(`inform owner when parking lot is full`, function () {
         let car = {};
         let car1 = {}
         parkingLot.parkCar(car)
-        assert.equal(parkingLot.parkCar(car1), owner.informParkingLotFull())
+        let stub = sinon.stub(owner, "informParkingLotFull")
+            .returns("Parking lot is full")
+        expect(parkingLot.parkCar(car1)).to.be.equal("Parking lot is full")
+        sinon.restore()
     })
 
     // UC4.. inform airport security personal when parking lot is full
